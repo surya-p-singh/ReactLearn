@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
 
 class CoursesPage extends React.Component {
 
@@ -44,5 +43,5 @@ class CoursesPage extends React.Component {
 }
 
 
-export default connect()(CoursesPage);
+export default CoursesPage;
 
