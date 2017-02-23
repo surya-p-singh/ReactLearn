@@ -17,6 +17,11 @@ class ManageCoursePage extends React.Component {
         this.saveCourse = this.saveCourse.bind(this);
     }
 
+    componentWillReceiveProps(nextProps){
+        if(this.props.course.id != nextProps.course.id)
+          this.setState({course:Object.assign({},nextProps.course)})
+    }
+
     updateCourseState(event){
       const field = event.target.name;
       let course = this.state.course;
@@ -56,14 +61,23 @@ ManageCoursePage.contextTypes ={
   router:PropTypes.object
 };
 
+function getCourseById(courses, courseId){
+  const course = courses.filter(course => course.id === courseId); //Filter will always return an array
+
+  if(course)
+    return course[0]
+
+  return null;
+}
+
 function mapStateToProps(state, ownProps) {
-  const courseId = ownProps.params.id;  // from the path course/:id
+    const courseId = ownProps.params.id;  // from the path `course/:id`
+    let course = {id: '', watchHref:'', title:'', authorId:'', length:'', category:''};
 
-  if(courseId){
-    course
-  }
+    if(courseId && state.courses.length >0 ){
+      course = getCourseById(state.courses, courseId);
+    }
 
-  let course = {id: '', watchHref:'', title:'', authorId:'', length:'', category:''};
     const authorsFormattedForDropdown = state.authors.map((author) => {
         return {
           value:author.id,
