@@ -3,9 +3,9 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import CourseForm from './CourseForm';
 
-function setup(){
+function setup(saving){
   const props = {
-    course :{}, errors:{}, saving:false,
+    course :{}, errors:{}, saving:saving,
     onSave: ()=> {},
     onChange: ()=> {}
   };
@@ -26,10 +26,25 @@ describe('CourseForm via React Test Util', () => {
         const {output} = setup();
         expect(output.type).toBe('form');
 
-        let [TextInput] = output.props.children;
+        let h1 = output.props.children[0];
+        expect(h1.props.children).toEqual('Manage Courses');
+
+        let TextInput = output.props.children[1];
         let {name,label} = TextInput.props;
 
         expect(name).toBe('title');
         expect(label).toBe('Title');
-    })
+    });
+
+    it('save button is labeled "Save" when not saving', ()=>{
+        const {output} = setup(false);
+        const submitButton = output.props.children[5];
+        expect(submitButton.props.value).toBe('Save');
+      });
+
+    it('save button is labeled "Saving..." when saving', ()=>{
+      const {output} = setup(true);
+      const submitButton = output.props.children[5];
+      expect(submitButton.props.value).toBe('Saving...');
+    });
 });
