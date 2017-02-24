@@ -3,14 +3,16 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
+import toastr from 'toastr';
 
 class ManageCoursePage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-          course:Object.assign({}, this.props.course),
-          errors:{}
+          course: Object.assign({}, this.props.course),
+          errors: {},
+          saving: false
         };
 
         this.updateCourseState = this.updateCourseState.bind(this);
@@ -19,7 +21,7 @@ class ManageCoursePage extends React.Component {
 
     componentWillReceiveProps(nextProps){
         if(this.props.course.id != nextProps.course.id)
-          this.setState({course:Object.assign({},nextProps.course)})
+          this.setState({course:Object.assign({},nextProps.course)});
     }
 
     updateCourseState(event){
@@ -31,10 +33,21 @@ class ManageCoursePage extends React.Component {
 
     saveCourse(event){
       event.preventDefault();
-      this.props.actions.saveCourse(this.state.course);
-      this.context.router.push('/courses');
+      this.setState({saving: true});
+
+      this.props.actions.saveCourse(this.state.course)
+        .then(() => this.redirect())
+        .catch(error => {
+          toastr.error(error);
+          this.setState({saving: false});
+        });
     }
 
+    redirect (){
+      this.setState({saving: false});
+      toastr.success('Course Save');
+      this.context.router.push('/courses');
+    }
     render() {
         return (
           <div>
@@ -45,6 +58,7 @@ class ManageCoursePage extends React.Component {
               errors={this.state.errors}
               onChange={this.updateCourseState}
               onSave={this.saveCourse}
+              saving={this.state.saving}
             />
           </div>
         );
@@ -65,7 +79,7 @@ function getCourseById(courses, courseId){
   const course = courses.filter(course => course.id === courseId); //Filter will always return an array
 
   if(course)
-    return course[0]
+    return course[0];
 
   return null;
 }
