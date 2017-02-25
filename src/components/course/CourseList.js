@@ -21,11 +21,12 @@ const CourseList = ({courses, deleteCourse}) => {
           </tbody>
         </table>
     );
-}
+};
 
 
 CourseList.propsTypes = {
-    courses:PropTypes.array.isRequired
+    courses:PropTypes.array.isRequired,
+    deleteCourse:PropTypes.object
 };
 
 export default CourseList;

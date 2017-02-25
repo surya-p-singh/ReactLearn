@@ -11,14 +11,14 @@ function setup(saving){
   };
 
   let renderer = TestUtils.createRenderer();
-  renderer.render(<CourseForm {...props} />)
+  renderer.render(<CourseForm {...props} />);
   let output = renderer.getRenderOutput();
 
   return{
     props,
     output,
     renderer
-  }
+  };
 }
 
 describe('CourseForm via React Test Util', () => {

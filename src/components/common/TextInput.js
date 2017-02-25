@@ -23,7 +23,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
         </div>
 
   );
-}
+};
 
 
 TextInput.propsTypes = {

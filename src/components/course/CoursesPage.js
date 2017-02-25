@@ -24,7 +24,6 @@ class CoursesPage extends React.Component {
     const {courses} = this.props;
     return(
       <div>
-
         <input
           type="submit"
           className="btn btn-primary"
