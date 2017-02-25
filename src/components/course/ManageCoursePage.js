@@ -39,7 +39,7 @@ export class ManageCoursePage extends React.Component {
         errors.title = 'Title must be at least 5 characters.';
         formIsValid = false;
       }
-
+      this.setState({errors:errors});
       return formIsValid;
     }
 
@@ -49,7 +49,6 @@ export class ManageCoursePage extends React.Component {
       if(!this.courseFormIsValid()){
         return;
       }
-
 
       this.setState({saving: true});
 
@@ -66,6 +65,7 @@ export class ManageCoursePage extends React.Component {
       toastr.success('Course Save');
       this.context.router.push('/courses');
     }
+
     render() {
         return (
           <div>

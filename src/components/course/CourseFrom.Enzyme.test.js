@@ -30,6 +30,7 @@ describe('CourseForm via React Test Util', () => {
 
   it('save button is labeled "Saving..." when saving', () => {
     const wrapper = setUp(true);
+    console.log(wrapper);
     expect(wrapper.find('input').props().value).toBe('Saving...');
   });
 
