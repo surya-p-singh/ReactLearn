@@ -19,6 +19,20 @@ export class ManageCoursePage extends React.Component {
 
         this.updateCourseState = this.updateCourseState.bind(this);
         this.saveCourse = this.saveCourse.bind(this);
+       /* this.checkStateOfUpdatedCourse = this.checkStateOfUpdatedCourse.bind(this);*/
+    }
+
+
+    componentWillUnmount(){
+
+      debugger;
+      let course = this.state.course;
+      let updatedCourse = this.props.courses.filter (c => c.id === course.id);
+      if(updatedCourse[0].title === course.title)
+        this.context.router.push('/about');
+      else
+        return false;
+
     }
 
     componentWillReceiveProps(nextProps){
@@ -113,6 +127,7 @@ function mapStateToProps(state, ownProps) {
 
     return {
       course: course,
+      courses: state.courses,
       authors: authorsFormattedByDropdown(state.authors)
     };
 }
