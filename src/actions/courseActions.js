@@ -46,12 +46,9 @@ export function saveCourse(course){
 export function deleteCourse(course){
   console.log('course:', course);
   return function (dispatch, getState) {
-    dispatch(beginAjaxCall());
     return courseApi.deleteCourse(course.id).then(() => {
-      console.log('in promise');
       dispatch(loadCourses());
     }).catch(error =>{
-      dispatch(ajaxCallError(error));
       throw (error);
     });
   };
