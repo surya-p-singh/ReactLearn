@@ -10,3 +10,4 @@
 8. Pagination
 9. Sort course table (mapStateToProps)
 10. Revert abandoned changes
+11. add Delete icon with confirmation dialouge

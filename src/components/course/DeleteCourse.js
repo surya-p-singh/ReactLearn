@@ -12,7 +12,6 @@ class DeleteCourse extends React.Component {
   }
 
   onDelete(event){
-    //console.log(this.props.actions);
     this.props.actions.deleteCourse(this.props.course);
   }
 
@@ -32,5 +31,5 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(courseActions, dispatch)
   };
 }
-
+// If you aren't passing mapStateToProps then pass null
 export default connect(null,mapDispatchToProps)(DeleteCourse);

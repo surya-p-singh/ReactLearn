@@ -1,9 +1,7 @@
-
 import React from 'react';
 import expect from 'expect';
-import {mount, shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import {ManageCoursePage} from './ManageCoursePage';
-
 
 describe('Manage Course Page', () => {
 
