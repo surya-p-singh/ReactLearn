@@ -13,7 +13,7 @@ describe('Course Reducer', () => {
       ];
       const newCourse = {title:'C'};
 
-      const action = actions.createCourseSucess(newCourse);
+      const action = actions.createCourseSuccess(newCourse);
 
       //act
       const newState = courseReducer(initialState, action);
@@ -34,7 +34,7 @@ describe('Course Reducer', () => {
     ];
     const updatedCourse = {id:'C', title:'CC title'};
 
-    const action = actions.updateCourseSucess(updatedCourse);
+    const action = actions.updateCourseSuccess(updatedCourse);
 
     //act
     const newState = courseReducer(initialState, action);

@@ -8,7 +8,7 @@ import nock from 'nock';
 import configureMockStore from 'redux-mock-store';
 
 describe('Course Actions', () => {
-  describe('createCourseSucess', () => {
+  describe('createCourseSuccess', () => {
     it('should create a CREATE_COURSE_SUCCESS action', () => {
       //arrage
       const course = {id: 'Clean-code', title: 'Clean Code'};
@@ -18,7 +18,7 @@ describe('Course Actions', () => {
         };
 
       //act
-      const action = courseActions.createCourseSucess(course);
+      const action = courseActions.createCourseSuccess(course);
 
       //assert
       expect(action).toEqual(expectedAction);

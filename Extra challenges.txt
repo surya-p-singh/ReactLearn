@@ -1,0 +1,12 @@
+
+
+1. Author Adminstration (cant delete a author if he/she has a course)
+2. Delete Course
+3. Hide empty course list when all course are deleted
+4. Unsaved changes message when user is leaving manage course page
+5. Client side validation for category and link data
+6. Handle 404 on manage course page
+7. Show #course on header
+8. Pagination
+9. Sort course table (mapStateToProps)
+10. Revert abandoned changes
