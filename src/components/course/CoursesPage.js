@@ -9,6 +9,7 @@ class CoursesPage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
+    this.state = {sortCriteria:''};
     this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
   }
 
@@ -47,7 +48,7 @@ CoursesPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    courses: sortCoursesByTitle(state.courses)
+    courses: state.courses
   };
 }
 

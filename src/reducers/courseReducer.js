@@ -5,6 +5,7 @@ export default function courseReducer(state =initialState.courses, action){
     switch (action.type)
     {
       case types.LOAD_COURSES_SUCCESS:
+        console.log('action.courses:',action.courses);
         return action.courses;
 
       case types.CREATE_COURSE_SUCCESS:

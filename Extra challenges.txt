@@ -8,12 +8,21 @@
 6. Handle 404 on manage course page
 7. Show #course on header  -- Done
 8. Pagination
-9. Sort course table (mapStateToProps)
+9. Sort course table (mapStateToProps)   -- Done
 10. Revert abandoned changes
 11. Confirmation dialouge on delete  -- Done
 12. add Delete icon 
+13. Styling
+13. Radium pacakge for stylying
+14. SAAS
+15. reselect
+
 
 
 Modal page
 Router redirect
+Styling of react components
+Business logic
+Default Sorting on page load
+ 
 
