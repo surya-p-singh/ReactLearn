@@ -47,6 +47,9 @@ class DeleteCourse extends React.Component {
     );
   }
 }
+DeleteCourse.propsTypes = {
+  actions:PropTypes.func
+};
 
 function mapDispatchToProps(dispatch) {
   return {
