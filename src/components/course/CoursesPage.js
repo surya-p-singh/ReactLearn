@@ -7,24 +7,24 @@ import {browserHistory} from 'react-router';
 
 class CoursesPage extends React.Component {
 
-  constructor(props,context){
-    super(props,context);
-    this.redirectToAddCoursePage =  this.redirectToAddCoursePage.bind(this);
+  constructor(props, context) {
+    super(props, context);
+    this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
   }
 
-  courseRow (course, index){
-    return <div key={index}>{course.title}</div> ;
+  courseRow(course, index) {
+    return <div key={index}>{course.title}</div>;
   }
 
-  redirectToAddCoursePage(){
+  redirectToAddCoursePage() {
     browserHistory.push('/course/');
   }
 
-  render(){
+  render() {
     const {courses} = this.props;
-    return(
+    return (
       <div>
-        {courses && courses.length >0 && <div><br/>Total number of courses exist:{courses.length}</div> }
+        {courses && courses.length > 0 && <div><br/>Total number of courses exist:{courses.length}</div> }
         <div><br/></div>
         <div>
           <input
@@ -33,7 +33,7 @@ class CoursesPage extends React.Component {
             value=" Add Course"
             onClick={this.redirectToAddCoursePage}/>
 
-          <CourseList courses={courses} />
+          <CourseList courses={courses}/>
         </div>
       </div>
     );
@@ -41,20 +41,30 @@ class CoursesPage extends React.Component {
 }
 
 CoursesPage.propTypes = {
-  courses:PropTypes.array.isRequired,
-  actions:PropTypes.object.isRequired
+  courses: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
-  return{
-    courses:state.courses
+  return {
+    courses: sortCoursesByTitle(state.courses)
   };
 }
 
-function mapDispatchToProps(dispatch)
-{
-  return{
-    actions: bindActionCreators(courseActions,dispatch)
+function sortCoursesByTitle(courses) {
+  var sortedCourses = courses.slice(0);
+  sortedCourses.sort(function (a, b) {
+    var x = a.title.toLowerCase();
+    var y = b.title.toLowerCase();
+    return x < y ? -1 : x > y ? 1 : 0;
+  });
+
+  return sortedCourses;
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(courseActions, dispatch)
   };
 }
 

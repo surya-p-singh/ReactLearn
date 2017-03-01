@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import CourseListRow from './CourseListRow';
+import CoursePageTableHeader from './CoursePageTableHeader';
 
 const CourseList = ({courses}) => {
 
@@ -8,15 +9,7 @@ const CourseList = ({courses}) => {
       <div>
       {courses && courses.length !== 0 &&
         <table className="table">
-            <thead>
-              <tr>
-                <th>&nbsp;</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Category</th>
-                <th>Length</th>
-              </tr>
-            </thead>
+            <CoursePageTableHeader/>
             <tbody>
             {courses.map(course => <CourseListRow key={course.id} course={course} />
                 )}
