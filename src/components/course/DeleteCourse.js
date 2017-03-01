@@ -39,8 +39,8 @@ class DeleteCourse extends React.Component {
         onClick={this.openModal}/>
 
       <ConfirmationModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-        <h1>Do you really want to delete this course</h1>
-        <p><button onClick={() => this.onDelete()}>Yes</button> <button onClick={() => this.closeModal()}>No</button></p>
+        <h4>Do you really want to delete this course</h4>
+        <p><button onClick={() => this.onDelete()}  className="btn btn-xs btn-primary">Yes</button>      <button onClick={() => this.closeModal()} className="btn btn-xs btn-warning">No</button></p>
       </ConfirmationModal>
     </div>
 

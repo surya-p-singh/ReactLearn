@@ -25,20 +25,28 @@ export class ManageCoursePage extends React.Component {
 
     componentWillUnmount(){
 
-      debugger;
       let course = this.state.course;
       let updatedCourse = this.props.courses.filter (c => c.id === course.id);
       if(updatedCourse[0].title === course.title)
         this.context.router.push('/about');
       else
-        return false;
+        return 'You have unsaved information, are you sure you want to leave this page?' ;
 
+    }
+
+    routerWillLeave(){
+      let course = this.state.course;
+      let updatedCourse = this.props.courses.filter (c => c.id === course.id);
+      if(updatedCourse[0].title !== course.title)
+        return 'You have unsaved information, are you sure you want to leave this page?' ;
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.props.course.id != nextProps.course.id)
-          this.setState({course:Object.assign({},nextProps.course)});
+      if(this.props.course.id != nextProps.course.id)
+        this.setState({course:Object.assign({},nextProps.course)});
     }
+
+
 
     updateCourseState(event){
       const field = event.target.name;

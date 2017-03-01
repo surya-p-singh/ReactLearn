@@ -11,7 +11,8 @@ export default class ConfirmationModal extends React.Component {
       left: '50%',
       transform: 'translate(-50%, -50%)',
       zIndex: '9999',
-      background: '#fff'
+      background: '#fff',
+      padding: '40px'
     }
 
     if (this.props.width && this.props.height) {
