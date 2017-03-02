@@ -3,7 +3,6 @@ import courseApi from '../api/mockCourseApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
 export function loadCoursesSuccess(courses){
-  console.log('courses:',courses);
   return { type:types.LOAD_COURSES_SUCCESS, courses };
 }
 
@@ -60,12 +59,10 @@ export function sortCourses(sortCriteria){
     var state = getState();
     var sortedCourses = state.courses.slice(0);
     sortedCourses.sort(function (a, b) {
-      console.log('a[sortCriteria]:', a[sortCriteria]);
       var x = a[sortCriteria].toString().toLowerCase();
       var y = b[sortCriteria].toString().toLowerCase();
       return x < y ? -1 : x > y ? 1 : 0;
     });
-
 
     return dispatch(loadCoursesSuccess(sortedCourses));
   };
