@@ -1,6 +1,7 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
+
 export default function courseReducer(state =initialState.courses, action){
     switch (action.type)
     {
@@ -9,6 +10,11 @@ export default function courseReducer(state =initialState.courses, action){
         return action.courses;
 
       case types.CREATE_COURSE_SUCCESS:
+        return [
+          ...state, Object.assign({}, action.course)
+        ];
+
+        case types.UPDATE_COURSE:
         return [
           ...state, Object.assign({}, action.course)
         ];
