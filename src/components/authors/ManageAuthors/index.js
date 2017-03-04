@@ -19,7 +19,6 @@ class ManageAuthorsPage extends React.Component {
   }
 
   render() {
-    console.log('this.props.author.errors',this.props.author.errors);
     return (
       <div>
         <ManageAuthorForm
@@ -37,10 +36,11 @@ ManageAuthorsPage.propTypes = {
 };
 
 function  mapStateToProps(state, ownProps) {
-  const author = {firstName:'', lastName:'', errors:{ firstName:'',lastName:'' }};
+  //const author = {firstName:'', lastName:'', errors:{ firstName:'',lastName:'' }};
 
+  console.log('state:', state);
   return {
-    author: author
+    author: state.author
   };
 }
 

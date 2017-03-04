@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import TextInput from '../../common/TextInput';
 
 const ManageAuthorForm = ({author, onSave, onChange, saving, errors}) => {
-  console.log('errors:',errors);
+  console.log('author:',author);
   return (
     <form>
       <h1>Manage Author</h1>

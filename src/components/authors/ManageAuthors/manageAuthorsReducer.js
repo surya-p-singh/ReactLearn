@@ -1,13 +1,12 @@
 
 import * as types from './manageAuthorsConstant';
-import initialState from './manageAuthorsInitialState';
+import {INITIAL_STATE} from './manageAuthorsInitialState';
 
-export default function manageAuthorsReducer(state = initialState, action){
+export default function manageAuthorsReducer(state = INITIAL_STATE, action){
   switch (action.type)
   {
     case types.AUTHOR_TOUCHED:
-      console.log(action)
-      return action.key;
+      return state.set(action.key, action.value);
     default:
       return state;
   }
