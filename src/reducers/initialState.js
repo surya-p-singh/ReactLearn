@@ -19,6 +19,5 @@ export default {
         error: ''
       }
     }},
-  ajaxCallsInProgress:0,
-
+  ajaxCallsInProgress:0
 };

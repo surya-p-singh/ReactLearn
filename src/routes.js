@@ -5,6 +5,7 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';   // eslint-disable-line import/no-named-as-default
+import ManageAuthorsPage from './components/authors/ManageAuthors';   // eslint-disable-line import/no-named-as-default
 import ShowAuthors from './components/authors/ShowAuthors';   // eslint-disable-line import/no-named-as-default
 
 export default (
@@ -15,5 +16,6 @@ export default (
       <Route path="course/:id" component={ManageCoursePage} />
       <Route path="about" component={AboutPage} />
       <Route path="authors" component={ShowAuthors} />
+    <Route path="author" component={ManageAuthorsPage} />
   </Route>
 );

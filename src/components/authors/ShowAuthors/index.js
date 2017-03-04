@@ -2,30 +2,49 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {browserHistory} from 'react-router';
 
-import * as showAuthorsActions from './showAuthorsActions'
+import * as showAuthorsActions from './showAuthorsActions';
+import ShowAuthorsList from './showAuthorsList'
 
 class ShowAuthors extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.redirectToAddAuthorPage = this.redirectToAddAuthorPage.bind(this);
+  }
+
+  redirectToAddAuthorPage(){
+    browserHistory.push('/author/');
+  }
+
+  componentDidMount(){
+    this.props.actions.loadAuthors();
   }
 
   render() {
     return (
       <div>
-        Authors
+        <h1>Authors</h1>
+        <ShowAuthorsList authors={this.props.authors}/>
+        <br/>
+        <input
+          type="submit"
+          className="btn btn-primary"
+          value=" Add Author"
+          onClick={this.redirectToAddAuthorPage}/>
       </div>
     );
   }
 }
 
-ShowAuthors .propTypes = {
+ShowAuthors.propTypes = {
   actions: PropTypes.func.isRequired
 };
 
 function  mapStateToProps(state, ownProps) {
   return {
-    state: state
+    authors: state.authors
   };
 }
 
