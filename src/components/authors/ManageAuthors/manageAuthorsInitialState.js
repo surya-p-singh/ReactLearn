@@ -4,8 +4,16 @@ export const INITIAL_STATE = Immutable({
   id:'',
   firstName:'',
   lastName:'',
-  errors:{
-    firstName:'',
-    lastName:''
+  validation: {
+    isValid: false,
+    error: '',
+    firstName: {
+      touched: false,
+      error: ''
+    },
+    lastName: {
+      touched: false,
+      error: ''
+    }
   }
 });

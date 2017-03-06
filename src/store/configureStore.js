@@ -27,9 +27,9 @@ const composeEnhancers =
 
 /* eslint-enable */
 const enhancer = composeEnhancers(
-  applyMiddleware(thunk, reduxImmutableStateInvariant(), loggerMiddleware),
+  applyMiddleware(thunk, reduxImmutableStateInvariant(), loggerMiddleware)
   // other store enhancers if any
-);
+)
 
 
 export default function configureStore(initialState) {

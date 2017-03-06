@@ -1,8 +1,10 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../../common/TextInput';
 
-const ManageAuthorForm = ({author, onSave, onChange, saving, errors}) => {
-  console.log('author:',author);
+const ManageAuthorForm = ({author, onSave, onChange, saving, errors, onBlur}) => {
+  const isInputInvalid = (key) => {
+    return author.validation[key].touched && author.validation[key].error;
+  };
   return (
     <form>
       <h1>Manage Author</h1>
@@ -11,14 +13,16 @@ const ManageAuthorForm = ({author, onSave, onChange, saving, errors}) => {
         label="First Name"
         value={author.firstName}
         onChange={onChange}
-        error={errors.firstName} />
+        onBlur={onBlur}
+        error={isInputInvalid("firstName")} />
 
       <TextInput
         name="lastName"
         label="Last Name"
         value={author.lastName}
         onChange={onChange}
-        error={errors.lastName} />
+        onBlur={onBlur}
+        error={isInputInvalid("lastName")} />
 
       <input
         type="submit"

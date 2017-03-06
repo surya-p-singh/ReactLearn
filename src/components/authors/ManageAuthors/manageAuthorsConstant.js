@@ -1,1 +1,4 @@
 export const AUTHOR_TOUCHED = 'AUTHOR_TOUCHED';
+export const AUTHOR_VALID = 'AUTHOR_VALID';
+export const AUTHOR_INVALID = 'AUTHOR_INVALID';
+export const AUTHOR_UPDATED = 'AUTHOR_UPDATED';

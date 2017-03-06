@@ -9,20 +9,26 @@ class ManageAuthorsPage extends React.Component {
     super(props, context);
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.onBlur = this.onBlur.bind(this);
   }
 
   onInputChange(event)
   {
     const key = event.target.name;
     const value = event.target.value;
-    this.props.actions.formInputChange(key, value);
+    this.props.actions.formValueUpdated(key, value);
   }
+
+  onBlur(event) {
+    this.props.actions.formValueTouched(event.target.name, event.target.value);
+};
 
   render() {
     return (
       <div>
         <ManageAuthorForm
           onChange = {this.onInputChange}
+          onBlur={this.onBlur}
           author={this.props.author}
           errors={this.props.author.errors}
         />

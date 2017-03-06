@@ -11,7 +11,7 @@
 9. Sort course table (mapStateToProps)   -- Done
 10. Revert abandoned changes
 11. Confirmation dialouge on delete  -- Done
-12. add Delete icon 
+12. add Delete icon
 13. Styling
 13. Radium pacakge for stylying
 14. SAAS
@@ -24,5 +24,6 @@ Router redirect
 Styling of react components
 Business logic
 Default Sorting on page load
- 
+Find out how async await work in redux-thunk
+
 

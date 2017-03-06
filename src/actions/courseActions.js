@@ -75,10 +75,10 @@ export const formValueUpdated = (index, key, value) => {
   };
 };
 
-export const formValueTouched = (index, key, value) => {
-  return (dispatch, getState) => {
-    dispatch({type: constants.INVITEE_TOUCHED, index, key, value});
-    dispatch(validateForm(getState().inviteUsersForm.invitees[index], index));
-  };
-};
+// export const formValueTouched = (index, key, value) => {
+//   return (dispatch, getState) => {
+//     dispatch({type: constants.INVITEE_TOUCHED, index, key, value});
+//     dispatch(validateForm(getState().inviteUsersForm.invitees[index], index));
+//   };
+// };
 
