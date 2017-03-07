@@ -18,22 +18,25 @@ export const formValueTouched = (key, value) => {
 };
 
 export const validateForm = (author) => {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     try
     {
       const result = await validate(author);
 
       const mappedValidation = mapValidFields(result);
       mappedValidation.isValid = true;
+
       dispatch({type: types.AUTHOR_VALID, validationResult: {validation: mappedValidation}});
+
       return result;
+
     } catch (err) {
       const mappedValidation = mapInvalidFields(err);
       mappedValidation.isValid = false;
       dispatch({type: types.AUTHOR_INVALID, validationResult: {validation: mappedValidation}});
     }
-  }
-}
+  };
+};
 
 export const mapValidFields = (value) => {
   const validFields = {};
