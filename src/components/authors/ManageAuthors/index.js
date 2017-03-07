@@ -10,10 +10,10 @@ class ManageAuthorsPage extends React.Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
+    this.saveAuthor = this.saveAuthor.bind(this);
   }
 
-  onInputChange(event)
-  {
+  onInputChange(event) {
     const key = event.target.name;
     const value = event.target.value;
     this.props.actions.formValueUpdated(key, value);
@@ -21,7 +21,12 @@ class ManageAuthorsPage extends React.Component {
 
   onBlur(event) {
     this.props.actions.formValueTouched(event.target.name, event.target.value);
-};
+  };
+
+  saveAuthor(){
+    console.log('this.props.actions.saveAuthor', this.props.author)
+    this.props.actions.saveAuthor(this.props.author);
+  }
 
   render() {
     return (
@@ -31,6 +36,7 @@ class ManageAuthorsPage extends React.Component {
           onBlur={this.onBlur}
           author={this.props.author}
           errors={this.props.author.errors}
+          onSave={this.saveAuthor}
         />
       </div>
     );

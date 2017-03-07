@@ -2,6 +2,35 @@ import * as types from './manageAuthorsConstant';
 import {validate} from './manageAuthorValidation';
 import AuthorApi from '../../../api/mockAuthorApi';
 
+export const updateAuthorSuccess= (author) =>{
+  return ({type: types.UPDATE_AUTHOR_SUCCESS, author});
+};
+
+export const saveAuthorSuccess= (author) =>{
+  return ({type: types.SAVE_AUTHOR_SUCCESS, author});
+};
+
+
+export const saveAuthor = (author)=> {
+  return (dipatch, getState) => {
+    let authorInApiFormat = {
+        firstName: author.firstName,
+        lastName: author.lastName
+      };
+
+    return AuthorApi.saveAuthor(authorInApiFormat).then(savedAuthor => {
+        debugger;
+        let auhorInState = getState().author;
+        auhorInState.id =  savedAuthor.id;
+        author.id  ? dipatch(updateAuthorSuccess(auhorInState)) : dispatch(saveAuthorSuccess(auhorInState))
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+};
+
+
 export const formValueUpdated = (key, value) => {
   return (dispatch, getState) => {
     dispatch({type:types.AUTHOR_UPDATED, key, value});

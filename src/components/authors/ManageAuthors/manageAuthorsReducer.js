@@ -5,6 +5,15 @@ import {INITIAL_STATE} from './manageAuthorsInitialState';
 export default function manageAuthorsReducer(state = INITIAL_STATE, action){
   switch (action.type)
   {
+    case types.SAVE_AUTHOR_SUCCESS:
+      return  [
+        ...state.authors, Object.assign({}, action.author)
+      ];
+
+    case types.UPDATE_AUTHOR_SUCCESS:
+      return [
+        ...state.authors.filter(author => author.id !== action.author.id), Object.assign({}, action.author)
+      ];
     case types.AUTHOR_UPDATED:
       return state.set(action.key, action.value);
     case types.AUTHOR_TOUCHED:
