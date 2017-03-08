@@ -23,9 +23,11 @@ class ManageAuthorsPage extends React.Component {
     this.props.actions.formValueTouched(event.target.name, event.target.value);
   };
 
-  saveAuthor(){
-    console.log('this.props.actions.saveAuthor', this.props.author)
+  saveAuthor(event){
+    event.preventDefault();
+    /* console.log('this.props.actions.saveAuthor', this.props.author); */
     this.props.actions.saveAuthor(this.props.author);
+    this.context.router.push('/authors');
   }
 
   render() {
@@ -43,6 +45,10 @@ class ManageAuthorsPage extends React.Component {
   }
 }
 
+ManageAuthorsPage.contextTypes ={
+  router:PropTypes.object
+};
+
 ManageAuthorsPage.propTypes = {
   //myProp: PropTypes.string.isRequired
 };
@@ -50,7 +56,6 @@ ManageAuthorsPage.propTypes = {
 function  mapStateToProps(state, ownProps) {
   //const author = {firstName:'', lastName:'', errors:{ firstName:'',lastName:'' }};
 
-  console.log('state:', state);
   return {
     author: state.author
   };

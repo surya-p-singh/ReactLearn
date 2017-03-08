@@ -12,17 +12,16 @@ export const saveAuthorSuccess= (author) =>{
 
 
 export const saveAuthor = (author)=> {
-  return (dipatch, getState) => {
+  return (dispatch, getState) => {
     let authorInApiFormat = {
         firstName: author.firstName,
         lastName: author.lastName
       };
 
     return AuthorApi.saveAuthor(authorInApiFormat).then(savedAuthor => {
-        debugger;
-        let auhorInState = getState().author;
-        auhorInState.id =  savedAuthor.id;
-        author.id  ? dipatch(updateAuthorSuccess(auhorInState)) : dispatch(saveAuthorSuccess(auhorInState))
+      //debugger;
+        let author = getState().author;
+      author.id ? dispatch({type:types.UPDATE_AUTHOR_SUCCESS, savedAuthor}):  dispatch({type:types.SAVE_AUTHOR_SUCCESS, savedAuthor});
       })
       .catch(error => {
         throw error;

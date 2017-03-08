@@ -6,13 +6,15 @@ export default function manageAuthorsReducer(state = INITIAL_STATE, action){
   switch (action.type)
   {
     case types.SAVE_AUTHOR_SUCCESS:
-      return  [
-        ...state.authors, Object.assign({}, action.author)
-      ];
+      state.set("id", action.id);
+      return state;
+      /*return  [
+        ...state.authors, Object.assign({}, state)
+      ];*/
 
     case types.UPDATE_AUTHOR_SUCCESS:
       return [
-        ...state.authors.filter(author => author.id !== action.author.id), Object.assign({}, action.author)
+        ...state.authors.filter(author => author.id !== action.author.id), Object.assign({}, action)
       ];
     case types.AUTHOR_UPDATED:
       return state.set(action.key, action.value);
