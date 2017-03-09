@@ -3,11 +3,38 @@ import {validate} from './manageAuthorValidation';
 import AuthorApi from '../../../api/mockAuthorApi';
 
 export const updateAuthorSuccess= (author) =>{
+
   return ({type: types.UPDATE_AUTHOR_SUCCESS, author});
 };
 
-export const saveAuthorSuccess= (author) =>{
+export const saveAuthorSuccess= () =>{
+
+  let author = {
+                id:'',
+                  firstName:'',
+                  lastName:'',
+                  validation: {
+                  isValid: false,
+                    error: '',
+                    firstName: {
+                    touched: false,
+                      error: ''
+                  },
+                  lastName: {
+                    touched: false,
+                      error: ''
+                  }
+                }
+              };
+
   return ({type: types.SAVE_AUTHOR_SUCCESS, author});
+};
+
+export const savingAuthor= (author) =>{
+  return async (distpatch) => {
+      await distpatch({type: types.SAVING_AUTHOR, author})
+      await distpatch(saveAuthorSuccess());
+  };
 };
 
 
@@ -18,10 +45,9 @@ export const saveAuthor = (author)=> {
         lastName: author.lastName
       };
 
-    return AuthorApi.saveAuthor(authorInApiFormat).then(savedAuthor => {
-      //debugger;
+      return AuthorApi.saveAuthor(authorInApiFormat).then(savedAuthor => {
         let author = getState().author;
-      author.id ? dispatch({type:types.UPDATE_AUTHOR_SUCCESS, savedAuthor}):  dispatch({type:types.SAVE_AUTHOR_SUCCESS, savedAuthor});
+      author.id ? dispatch({type:types.UPDATE_AUTHOR_SUCCESS, savedAuthor}):  dispatch(savingAuthor(savedAuthor));
       })
       .catch(error => {
         throw error;

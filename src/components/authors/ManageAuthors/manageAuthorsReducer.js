@@ -6,12 +6,12 @@ export default function manageAuthorsReducer(state = INITIAL_STATE, action){
   switch (action.type)
   {
     case types.SAVE_AUTHOR_SUCCESS:
+      console.log('inside:', action.author)
+      //TODO: Find proper way to replace object
+      return state.merge({'firstName':  action.author.firstName,'lastName': action.author.lastName});
+    case types.SAVING_AUTHOR:
       state.set("id", action.id);
       return state;
-      /*return  [
-        ...state.authors, Object.assign({}, state)
-      ];*/
-
     case types.UPDATE_AUTHOR_SUCCESS:
       return [
         ...state.authors.filter(author => author.id !== action.author.id), Object.assign({}, action)
