@@ -1,11 +1,15 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../../common/TextInput';
 
-const ManageAuthorForm = ({author, onSave, onChange, saving, errors, onBlur}) => {
+const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
   const isInputInvalid = (key) => {
     return author.validation[key].touched && author.validation[key].error;
   };
+
+  const idSaveButtonDisabled = author.validation.isValid ? false : true;
+  /*console.log('idSaveButtonDisabled:', idSaveButtonDisabled);*/
   return (
+
     <form>
       <h1>Manage Author</h1>
       <TextInput
@@ -26,7 +30,7 @@ const ManageAuthorForm = ({author, onSave, onChange, saving, errors, onBlur}) =>
 
       <input
         type="submit"
-        disable={saving}
+        disabled ={idSaveButtonDisabled}
         className="btn btn-primary"
         value={saving ? 'Saving...': 'Save'}
         onClick={onSave}/>

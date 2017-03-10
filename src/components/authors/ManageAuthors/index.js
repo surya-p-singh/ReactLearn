@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import ManageAuthorForm from './manageAuthorsForm';
-import * as manageAuthorsActions from './manageAuthorsActions';
+import ManageAuthorForm from './manage-author-form';
+import * as manageAuthorsActions from './manage-author-actions';
 
 class ManageAuthorsPage extends React.Component {
   constructor(props, context) {
@@ -30,6 +30,18 @@ class ManageAuthorsPage extends React.Component {
     this.context.router.push('/authors');
   }
 
+  componentDidMount(){
+    const authorId = this.props.params.id;
+
+    let author = this.props.author;
+    if(authorId)
+    {
+      const existingAuthor = this.props.authors.filter((author)=> author.id === authorId)[0];
+      this.props.actions.existingAuthorLoaded(existingAuthor);
+    }
+
+  }
+
   render() {
     return (
       <div>
@@ -54,10 +66,10 @@ ManageAuthorsPage.propTypes = {
 };
 
 function  mapStateToProps(state, ownProps) {
-  //const author = {firstName:'', lastName:'', errors:{ firstName:'',lastName:'' }};
 
   return {
-    author: state.author
+    author: state.author,
+    authors:state.authors
   };
 }
 

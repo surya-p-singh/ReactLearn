@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import ShowAuthorsRow from './showAuthorsRow';
+import ShowAuthorsRow from './show-authors-row';
 
 const ShowAuthorsList = ({authors}) => {
   return (
@@ -8,8 +8,10 @@ const ShowAuthorsList = ({authors}) => {
       <table className="table">
         <thead>
         <tr>
+          <th>Id</th>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>Date of birth</th>
         </tr>
         </thead>
         <tbody>

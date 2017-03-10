@@ -1,33 +1,18 @@
-import * as types from './manageAuthorsConstant';
-import {validate} from './manageAuthorValidation';
+import * as types from './manage-author-constant';
+import {validate} from './manage-author-validation';
 import AuthorApi from '../../../api/mockAuthorApi';
+import {mapValidFields, mapInvalidFields} from '../../../libs/action-util';
 
-export const updateAuthorSuccess= (author) =>{
-
+export const updateAuthorSuccess = (author) =>{
   return ({type: types.UPDATE_AUTHOR_SUCCESS, author});
 };
 
+export const existingAuthorLoaded =  (author) =>{
+  return ({type: types.EXISTING_AUTHOR_LOADED, author});
+};
+
 export const saveAuthorSuccess= () =>{
-
-  let author = {
-                id:'',
-                  firstName:'',
-                  lastName:'',
-                  validation: {
-                  isValid: false,
-                    error: '',
-                    firstName: {
-                    touched: false,
-                      error: ''
-                  },
-                  lastName: {
-                    touched: false,
-                      error: ''
-                  }
-                }
-              };
-
-  return ({type: types.SAVE_AUTHOR_SUCCESS, author});
+  return ({type: types.SAVE_AUTHOR_SUCCESS});
 };
 
 export const savingAuthor= (author) =>{
@@ -37,6 +22,12 @@ export const savingAuthor= (author) =>{
   };
 };
 
+export const updatingAuthor= (author) =>{
+  return async (distpatch) => {
+    await distpatch({type: types.UPDATING_AUTHOR, author})
+    await distpatch(updateAuthorSuccess());
+  };
+};
 
 export const saveAuthor = (author)=> {
   return (dispatch, getState) => {
@@ -44,10 +35,9 @@ export const saveAuthor = (author)=> {
         firstName: author.firstName,
         lastName: author.lastName
       };
-
       return AuthorApi.saveAuthor(authorInApiFormat).then(savedAuthor => {
         let author = getState().author;
-      author.id ? dispatch({type:types.UPDATE_AUTHOR_SUCCESS, savedAuthor}):  dispatch(savingAuthor(savedAuthor));
+        author.id ? dispatch(updatingAuthor(savedAuthor)):  dispatch(savingAuthor(savedAuthor));
       })
       .catch(error => {
         throw error;
@@ -76,14 +66,11 @@ export const validateForm = (author) => {
     try
     {
       const result = await validate(author);
-
       const mappedValidation = mapValidFields(result);
       mappedValidation.isValid = true;
-
       dispatch({type: types.AUTHOR_VALID, validationResult: {validation: mappedValidation}});
 
       return result;
-
     } catch (err) {
       const mappedValidation = mapInvalidFields(err);
       mappedValidation.isValid = false;
@@ -92,28 +79,6 @@ export const validateForm = (author) => {
   };
 };
 
-export const mapValidFields = (value) => {
-  const validFields = {};
 
-  for (const prop in value) {
-    if (value.hasOwnProperty(prop)) {
-      validFields[prop] = {
-        error: ''
-      };
-    }
-  }
-  return validFields;
-};
-
-export const mapInvalidFields = (err) => {
-  const mappedValidation = err.inner.reduce((o, val) => {
-    o[val.path] = {
-      error: val.message
-    };
-    return o;
-  }, {});
-
-  return Object.assign(mapValidFields(err.value), mappedValidation);
-};
 
 

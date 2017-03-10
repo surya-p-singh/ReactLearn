@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import courses from './courseReducer';
 import authors from './authorReducer';
-import author from '../components/authors/ManageAuthors/manageAuthorsReducer';
+import author from '../components/authors/ManageAuthors/manage-author-reducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({

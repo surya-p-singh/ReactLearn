@@ -1,4 +1,4 @@
-import * as types from './showAuthorsConstant';
+import * as types from './show-authors-constant';
 import AuthorApi from '../../../api/mockAuthorApi';
 
 export function loadAuthorsSuccess(authors){

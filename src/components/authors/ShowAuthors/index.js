@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {browserHistory} from 'react-router';
 
-import * as showAuthorsActions from './showAuthorsActions';
-import ShowAuthorsList from './showAuthorsList'
+import * as showAuthorsActions from './show-authors-actions';
+import ShowAuthorsList from './show-authors-list'
 
 class ShowAuthors extends React.Component {
   constructor(props, context) {
