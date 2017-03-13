@@ -1,6 +1,6 @@
 import expect from 'expect';
-import courseReducer from './courseReducer';
-import * as actions from '../actions/courseActions';
+import courseReducer from './manage-course-reducer';
+import * as actions from './manage-course-actions';
 
 // redux test recorder api can be used for redux tests
 

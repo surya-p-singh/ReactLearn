@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../../actions/courseActions';
+import * as showCourseActions from './show-courses-details-actions';
 import ConfirmationModal from '../../common/ConfirmationModal';
 
 class DeleteCourse extends React.Component {
@@ -53,7 +53,7 @@ DeleteCourse.propsTypes = {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(courseActions, dispatch)
+    actions: bindActionCreators(showCourseActions, dispatch)
   };
 }
 // If you aren't passing mapStateToProps then pass null

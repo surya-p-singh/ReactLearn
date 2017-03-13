@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../../common/TextInput';
+import DatePicker from '../../common/DatePicker';
 
 const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
   const isInputInvalid = (key) => {
@@ -8,6 +9,12 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
 
   const idSaveButtonDisabled = author.validation.isValid ? false : true;
   /*console.log('idSaveButtonDisabled:', idSaveButtonDisabled);*/
+
+  showDatePicker()
+  {
+    
+  }
+
   return (
 
     <form>
@@ -27,6 +34,17 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
         onChange={onChange}
         onBlur={onBlur}
         error={isInputInvalid("lastName")} />
+
+      <TextInput
+        name="lastName"
+        label="Last Name"
+        value={author.dateOfBirth}
+        onChange={onChange}
+        onBlur={onBlur}
+        error={isInputInvalid("dateOfBirth")}
+        onClick={this.showDatePicker}/>
+
+      < DatePicker />
 
       <input
         type="submit"

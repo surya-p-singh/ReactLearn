@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../../actions/courseActions';
+import * as showCourseActions from './show-courses-details-actions';
 //import CoursePageTableHeaderStyle from './CoursePageTableHeaderStyle.css'
 class CoursePageTableHeader extends React.Component {
 
@@ -39,7 +39,7 @@ class CoursePageTableHeader extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(courseActions, dispatch)
+    actions: bindActionCreators(showCourseActions, dispatch)
   };
 }
 // If you aren't passing mapStateToProps then pass null

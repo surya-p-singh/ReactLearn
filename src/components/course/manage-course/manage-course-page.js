@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import toastr from 'toastr';
 
-import * as courseActions from '../../../actions/courseActions';
+import * as manageCourseActions from './manage-course-actions';
 import CourseForm from './manage-course-form';
 import {authorsFormattedByDropdown} from '../../../selectors/selectors';
 
@@ -19,9 +19,7 @@ export class ManageCoursePage extends React.Component {
 
         this.updateCourseState = this.updateCourseState.bind(this);
         this.saveCourse = this.saveCourse.bind(this);
-       /* this.checkStateOfUpdatedCourse = this.checkStateOfUpdatedCourse.bind(this);*/
     }
-
 
     componentWillUnmount(){
 
@@ -31,22 +29,12 @@ export class ManageCoursePage extends React.Component {
         this.context.router.push('/about');
       else
         return 'You have unsaved information, are you sure you want to leave this page?' ;
-
-    }
-
-    routerWillLeave(){
-      let course = this.state.course;
-      let updatedCourse = this.props.courses.filter (c => c.id === course.id);
-      if(updatedCourse[0].title !== course.title)
-        return 'You have unsaved information, are you sure you want to leave this page?' ;
     }
 
     componentWillReceiveProps(nextProps){
       if(this.props.course.id != nextProps.course.id)
         this.setState({course:Object.assign({},nextProps.course)});
     }
-
-
 
     updateCourseState(event){
       const field = event.target.name;
@@ -135,14 +123,14 @@ function mapStateToProps(state, ownProps) {
 
     return {
       course: course,
-      courses: state.courses,
+      courses: state.manageCourse,
       authors: authorsFormattedByDropdown(state.authors)
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(courseActions, dispatch)
+        actions: bindActionCreators(manageCourseActions, dispatch)
     };
 }
 
