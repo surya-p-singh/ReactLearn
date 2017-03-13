@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import CourseForm from './CourseForm';
+import CourseForm from './manage-course-page';
 
 function setup(saving){
   const props = {

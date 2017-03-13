@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import {shallow} from 'enzyme';
-import CourseForm from './CourseForm';
+import CourseForm from './manage-course-page';
 
 function setUp(saving){
   const props = {

@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import toastr from 'toastr';
 
-import * as courseActions from '../../actions/courseActions';
-import CourseForm from './CourseForm';
-import {authorsFormattedByDropdown} from '../../selectors/selectors';
+import * as courseActions from '../../../actions/courseActions';
+import CourseForm from './manage-course-form';
+import {authorsFormattedByDropdown} from '../../../selectors/selectors';
 
 export class ManageCoursePage extends React.Component {
     constructor(props, context) {
