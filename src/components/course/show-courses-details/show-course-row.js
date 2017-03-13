@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import DeleteCourse from './delete-course';
 
 const CourseListRow = ({course}) => {
+    const level = course.level.toUpperCase();
     return(
       <tr>
         <td><a href={course.watchHref} target="_blank">Watch</a></td>
@@ -10,6 +11,7 @@ const CourseListRow = ({course}) => {
         <td>{course.authorId}</td>
         <td>{course.category}</td>
         <td>{course.length}</td>
+        <td>{level}</td>
         <td><DeleteCourse course={course} /></td>
       </tr>
     );

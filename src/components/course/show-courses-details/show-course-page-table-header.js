@@ -30,6 +30,7 @@ class CoursePageTableHeader extends React.Component {
         <th><a id="authorId" onClick={this.sortCourse} style={style}>Author</a></th>
         <th><a id="category" onClick={this.sortCourse} style={style}>Category</a></th>
         <th><a id="length" onClick={this.sortCourse} style={style}>Duration</a></th>
+        <th><a id="level" onClick={this.sortCourse} style={style}>Level</a></th>
       </tr>
       </thead>
     );
