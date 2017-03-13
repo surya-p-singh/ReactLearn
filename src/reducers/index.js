@@ -6,7 +6,7 @@ import author from '../components/authors/manage-author/manage-author-reducer';
 import manageCourse from '../components/course/manage-course/manage-course-reducer';
 import courses from '../components/course/show-courses-details/show-courses-details-reducer';
 
-import ajaxCallsInProgress from './ajaxStatusReducer';
+import ajaxCallsInProgress from './ajax-status-reducer';
 
 const rootReducer = combineReducers({
   ajaxCallsInProgress,
