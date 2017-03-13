@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/app';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
-import CoursesPage from './components/course/CoursesPage';
+import CoursesPage from './components/course/show-courses-details/show-course-page';
 import ManageCoursePage from './components/course/ManageCoursePage';   // eslint-disable-line import/no-named-as-default
 import ManageAuthorsPage from './components/authors/manage-author';   // eslint-disable-line import/no-named-as-default
 import ShowAuthors from './components/authors/show-authors-details';   // eslint-disable-line import/no-named-as-default

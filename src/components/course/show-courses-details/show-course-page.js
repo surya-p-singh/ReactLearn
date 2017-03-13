@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../actions/courseActions';
-import CourseList from './CourseList';
+import * as courseActions from '../../../actions/courseActions';
+import CourseList from './show-course-list';
 import {browserHistory} from 'react-router';
 
 class CoursesPage extends React.Component {

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
-import CourseListRow from './CourseListRow';
-import CoursePageTableHeader from './CoursePageTableHeader';
+import CourseListRow from './show-course-row';
+import CoursePageTableHeader from './show-course-page-table-header';
 
 const CourseList = ({courses}) => {
 

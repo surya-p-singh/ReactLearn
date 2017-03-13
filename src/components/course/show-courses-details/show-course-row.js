@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
-import DeleteCourse from './DeleteCourse';
+import DeleteCourse from './delete-course';
 
 const CourseListRow = ({course}) => {
     return(

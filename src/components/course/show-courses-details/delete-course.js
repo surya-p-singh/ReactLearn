@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as courseActions from '../../actions/courseActions';
-import ConfirmationModal from '../common/ConfirmationModal';
+import * as courseActions from '../../../actions/courseActions';
+import ConfirmationModal from '../../common/ConfirmationModal';
 
 class DeleteCourse extends React.Component {
 
