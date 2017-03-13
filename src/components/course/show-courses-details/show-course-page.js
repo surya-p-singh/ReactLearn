@@ -25,7 +25,7 @@ class CoursesPage extends React.Component {
     const {courses} = this.props;
     return (
       <div>
-        {courses && courses.length > 0 && <div><br/>Total number of courses exist:{courses.length}</div> }
+        {courses && courses.length > 0 && <div><br/>Total number of courses exist:{courses.length}</div>}
         <div><br/></div>
         <div>
           <input
@@ -48,15 +48,15 @@ CoursesPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    courses: state.showCoursesDetails
+    courses: state.courses
   };
 }
 
-function sortCoursesByTitle(courses) {
-  var sortedCourses = courses.slice(0);
+function sortCoursesByTitle(courses){
+  const sortedCourses = courses.slice(0);
   sortedCourses.sort(function (a, b) {
-    var x = a.title.toLowerCase();
-    var y = b.title.toLowerCase();
+    let x = a.title.toLowerCase();
+    let y = b.title.toLowerCase();
     return x < y ? -1 : x > y ? 1 : 0;
   });
 

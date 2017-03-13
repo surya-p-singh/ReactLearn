@@ -21,15 +21,14 @@ export class ManageCoursePage extends React.Component {
         this.saveCourse = this.saveCourse.bind(this);
     }
 
-    componentWillUnmount(){
-
+   /* componentWillUnmount(){
       let course = this.state.course;
       let updatedCourse = this.props.courses.filter (c => c.id === course.id);
       if(updatedCourse[0].title === course.title)
         this.context.router.push('/about');
       else
         return 'You have unsaved information, are you sure you want to leave this page?' ;
-    }
+    }*/
 
     componentWillReceiveProps(nextProps){
       if(this.props.course.id != nextProps.course.id)
@@ -43,24 +42,8 @@ export class ManageCoursePage extends React.Component {
       return this.setState({course:course});
     }
 
-    courseFormIsValid(){
-      let formIsValid = true;
-      let errors = {};
-
-      if(this.state.course.title.length < 5 ){
-        errors.title = 'Title must be at least 5 characters.';
-        formIsValid = false;
-      }
-      this.setState({errors:errors});
-      return formIsValid;
-    }
-
     saveCourse(event){
       event.preventDefault();
-
-      if(!this.courseFormIsValid()){
-        return;
-      }
 
       this.setState({saving: true});
 

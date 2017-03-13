@@ -1,19 +1,13 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../../common/TextInput';
-import DatePicker from '../../common/DatePicker';
 
 const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
   const isInputInvalid = (key) => {
+    console.log(author);
     return author.validation[key].touched && author.validation[key].error;
   };
 
   const idSaveButtonDisabled = author.validation.isValid ? false : true;
-  /*console.log('idSaveButtonDisabled:', idSaveButtonDisabled);*/
-
-  showDatePicker()
-  {
-    
-  }
 
   return (
 
@@ -35,6 +29,7 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
         onBlur={onBlur}
         error={isInputInvalid("lastName")} />
 
+{/*
       <TextInput
         name="lastName"
         label="Last Name"
@@ -43,8 +38,7 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
         onBlur={onBlur}
         error={isInputInvalid("dateOfBirth")}
         onClick={this.showDatePicker}/>
-
-      < DatePicker />
+*/}
 
       <input
         type="submit"

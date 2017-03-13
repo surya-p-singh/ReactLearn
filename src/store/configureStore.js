@@ -14,7 +14,7 @@ import filter from 'redux-storage-decorator-filter';
 
 // Logger Middleware. This always has to be last
 const loggerMiddleware = createLogger({
-  predicate: () => process.env.NODE_ENV === 'development',
+  predicate: () => process.env.NODE_ENV === 'development'
 });
 
 /* eslint-disable no-underscore-dangle */
@@ -29,7 +29,7 @@ const composeEnhancers =
 const enhancer = composeEnhancers(
   applyMiddleware(thunk, reduxImmutableStateInvariant(), loggerMiddleware)
   // other store enhancers if any
-)
+);
 
 
 export default function configureStore(initialState) {

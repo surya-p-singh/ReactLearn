@@ -13,13 +13,12 @@ class CoursePageTableHeader extends React.Component {
   }
 
   sortCourse(event) {
-    console.log(event.target.id);
     this.props.actions.sortCourses(event.target.id);
   }
 
   render(){
 
-    var style = {
+    const style = {
       cursor: 'pointer'
     };
 

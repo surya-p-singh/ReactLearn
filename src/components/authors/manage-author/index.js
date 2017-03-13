@@ -32,8 +32,9 @@ class ManageAuthorsPage extends React.Component {
 
   componentDidMount(){
     const authorId = this.props.params.id;
-
     let author = this.props.author;
+    console.log('this.props.author:',author);
+    console.log('this.props.authors:',this.props.authors);
     if(authorId)
     {
       const existingAuthor = this.props.authors.filter((author)=> author.id === authorId)[0];
@@ -65,7 +66,8 @@ ManageAuthorsPage.propTypes = {
 };
 
 function  mapStateToProps(state, ownProps) {
-
+  console.log('state:',state);
+  console.log('authors',state.authors);
   return {
     author: state.author,
     authors:state.authors

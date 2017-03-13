@@ -35,11 +35,11 @@ export function deleteCoursesSucess(){
 
 export function sortCourses(sortCriteria){
   return function (dispatch, getState) {
-    var state = getState();
-    var sortedCourses = state.showCoursesDetails.slice(0);
+    const state = getState();
+    const sortedCourses = state.courses.slice(0);
     sortedCourses.sort(function (a, b) {
-      var x = a[sortCriteria].toString().toLowerCase();
-      var y = b[sortCriteria].toString().toLowerCase();
+      let x = a[sortCriteria].toString().toLowerCase();
+      let y = b[sortCriteria].toString().toLowerCase();
       return x < y ? -1 : x > y ? 1 : 0;
     });
 
