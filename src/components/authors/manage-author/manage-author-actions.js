@@ -33,7 +33,8 @@ export const saveAuthor = (author)=> {
   return (dispatch, getState) => {
     let authorInApiFormat = {
         firstName: author.firstName,
-        lastName: author.lastName
+        lastName: author.lastName,
+        id:author.id
       };
       return AuthorApi.saveAuthor(authorInApiFormat).then(savedAuthor => {
         let author = getState().author;

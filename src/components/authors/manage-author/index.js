@@ -39,7 +39,6 @@ class ManageAuthorsPage extends React.Component {
       const existingAuthor = this.props.authors.filter((author)=> author.id === authorId)[0];
       this.props.actions.existingAuthorLoaded(existingAuthor);
     }
-
   }
 
   render() {
