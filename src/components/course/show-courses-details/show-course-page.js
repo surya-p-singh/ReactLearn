@@ -52,18 +52,8 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function sortCoursesByTitle(courses){
-  const sortedCourses = courses.slice(0);
-  sortedCourses.sort(function (a, b) {
-    let x = a.title.toLowerCase();
-    let y = b.title.toLowerCase();
-    return x < y ? -1 : x > y ? 1 : 0;
-  });
-
-  return sortedCourses;
-}
-
 function mapDispatchToProps(dispatch) {
+  dispatch(showCourseActions.sortCourses('title'));
   return {
     actions: bindActionCreators(showCourseActions, dispatch)
   };
