@@ -40,7 +40,7 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
         error={isInputInvalid("dateOfBirth")}/> <br/>
 
       <TextInput
-        name="email"
+        name="emailAddress"
         label="Email"
         value={author.emailAddress}
         onChange={onChange}
