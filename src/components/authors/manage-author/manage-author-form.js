@@ -57,7 +57,6 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
   );
 };
 
-
 ManageAuthorForm.propsTypes = {
   author:PropTypes.object.isRequired,
   onChange:PropTypes.func.isRequired,
