@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../../common/TextInput';
-import DatePicker from '../../common/DatePicker';
+import DateTextInput from '../../common/DateTextInput';
 
 const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
   const isInputInvalid = (key) => {
@@ -20,7 +20,7 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
         value={author.firstName}
         onChange={onChange}
         onBlur={onBlur}
-        error={isInputInvalid("firstName")} /><br/><br/>
+        error={isInputInvalid("firstName")} /> <br/>
 
       <TextInput
         name="lastName"
@@ -28,22 +28,25 @@ const ManageAuthorForm = ({author, onSave, onChange, onBlur, saving}) => {
         value={author.lastName}
         onChange={onChange}
         onBlur={onBlur}
-        error={isInputInvalid("lastName")} /><br/><br/>
+        error={isInputInvalid("lastName")} /> <br/>
 
-{/*
-      <TextInput
-        name="lastName"
-        label="Last Name"
+
+      <DateTextInput
+        name="dateOfBirth"
+        label="Date of birth"
         value={author.dateOfBirth}
         onChange={onChange}
         onBlur={onBlur}
-        error={isInputInvalid("dateOfBirth")}
-        onClick={this.showDatePicker}/>
-*/}
-{/*      <DatePicker
+        error={isInputInvalid("dateOfBirth")}/> <br/>
+
+      <TextInput
+        name="email"
+        label="Email"
+        value={author.emailAddress}
         onChange={onChange}
-     /!*   value={author.dateOfBirth}  *!/
-        onBlur={onBlur} /> */}<br/><br/><br/><br/>
+        onBlur={onBlur}
+        error={isInputInvalid("emailAddress")} /> <br/>
+
       <input
         type="submit"
         disabled ={idSaveButtonDisabled}

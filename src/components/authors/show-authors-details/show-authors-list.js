@@ -12,6 +12,7 @@ const ShowAuthorsList = ({authors}) => {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of birth</th>
+          <th>Email</th>
         </tr>
         </thead>
         <tbody>

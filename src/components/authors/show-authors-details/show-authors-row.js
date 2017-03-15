@@ -8,7 +8,8 @@ const ShowAuthorsRow = ({author}) => {
       <td><Link to={'/author/' + author.id} > {author.id} </Link></td>
      <td>{author.firstName}</td>
      <td>{author.lastName}</td>
-     <td>12/12/2012</td>
+     <td>{author.dateOfBirth}</td>
+     <td>{author.emailAddress}</td>
     </tr>
   );
 }

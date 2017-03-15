@@ -7,17 +7,23 @@ const authors = [
   {
     id: 'cory-house',
     firstName: 'Cory',
-    lastName: 'House'
+    lastName: 'House',
+    dateOfBirth: '12/10/1978',
+    emailAddress:'a@a.com'
   },
   {
     id: 'scott-allen',
     firstName: 'Scott',
-    lastName: 'Allen'
+    lastName: 'Allen',
+    dateOfBirth: '10/04/1975',
+    emailAddress:'b@b.com'
   },
   {
     id: 'dan-wahlin',
     firstName: 'Dan',
-    lastName: 'Wahlin'
+    lastName: 'Wahlin',
+    dateOfBirth: '02/06/1971',
+    emailAddress:'c@c.com'
   }
 ];
 
